@@ -50,23 +50,6 @@ own. This page explains what we collect, why, and how to reach us.</p>
   <li><strong>Top Tayk votes.</strong> If you opt a post into Top Tayk, other
   users may see it and vote on it; we record which vote you cast and which
   four photos you were shown, so a fair win rate can be calculated.</li>
-  <li><strong>A phone number (optional).</strong> You may choose to add a phone
-  number so friends can find your profile by searching for it. Adding one is
-  entirely optional and you can remove it at any time from Settings.
-  <br><br>
-  We do not store the number itself. We store a keyed hash of it (HMAC-SHA256)
-  under a secret key held separately from the database, so someone who obtained
-  a copy of our data could not turn those hashes back into phone numbers. We
-  want to be precise rather than reassuring here: a plain hash of a phone
-  number would <em>not</em> give you that protection, because there are few
-  enough possible numbers to simply try them all. The secret key is what makes
-  the difference. It does mean we could match a number we were given against
-  our own records — we are telling you what the protection is, not claiming
-  it is absolute.
-  <br><br>
-  To send the verification text, the number itself is passed to our SMS
-  provider, Twilio. Lookups are rate-limited so the feature cannot be used to
-  work through phone numbers in bulk.</li>
 </ul>
 
 <h2>Advertising</h2>
@@ -91,9 +74,8 @@ Privacy &amp; Security → Tracking.</p>
 <h2>What we don't collect</h2>
 <p>We don't sell or rent your personal data, and we have no analytics SDK. There
 is no email/password login, so we never see or store a password. We don't
-collect precise location, and we never read your address book or contacts
-list — the only way to find someone by phone number is to type that number in
-yourself.</p>
+collect precise location, we never read your address book or contacts list, and
+we do not ask for or store your phone number.</p>
 
 <h2>Where your data lives</h2>
 <p>Tayka's backend runs on Supabase, hosted in the US East region. Photos,
@@ -108,8 +90,6 @@ of who follows whom.</p>
   <li><strong>Supabase</strong> — the database and photo storage, US East.</li>
   <li><strong>Apple</strong> — Sign in with Apple, and push notifications.</li>
   <li><strong>Google AdMob</strong> — advertising, as described above.</li>
-  <li><strong>Twilio</strong> — sends the verification text, and only if you
-  choose to add a phone number.</li>
 </ul>
 
 <h2>Who can see what you post</h2>
